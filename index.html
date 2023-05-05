@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shortcut icon" href="google-forms-logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <title>Form | p</title>
+  <style>
+ body{
+  background: rgb(218, 193, 193);
+ }
+
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+    <div class="container col-5 mt-5" style="background-color: #eef; border-radius: 20px;">
+        <h2 style="text-align: center; text-transform: uppercase; font-size: 45px;">simple login form</h2>
+        <form action="../Anas.Resume.pdf">
+
+       
+            <div class="form-group">
+                <label for="nameInputEmail1">Name User :</label>
+                <input type="text" class="form-control" id="username" aria-describedby="textlHelp" required placeholder="Enter your name*">
+                <!-- <small id="textlHelp" class="form-text text-muted">We'll never share your user name with anyone else.</small> -->
+                <div id="error"></div>
+              </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address :</label>
+              <input type="email" class="form-control" id="useremail" aria-describedby="emailHelp" placeholder="Enter your Email*">
+              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+              <div class="error"></div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password :</label>
+              <input type="password" class="form-control" id="userpwd" placeholder="Enter your Password*">
+            </div>
+            
+
+            <div class="form-group">
+                <label for="exampleInputcPassword1">Confrim Password :</label>
+                <input type="password" class="form-control" id="cpwd" placeholder="Enter your Confrim  Password*">
+              </div> 
+              <div id="show-error"></div>
+
+
+
+
+
+
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="usercheck">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary mb-3" id="submit">Submit</button>
+          </form>
+
+    </div>
+
+  
+
+
+
+  <script>
+    
+    $(document).ready(function () {
+    $('#submit').click(function () {
+        let user = $('#username').val();
+        let email = $('#useremail').val();
+        if (user == ''){
+            $('#error').html('**The username should not be empty');
+            $('#error').css('color','yellow');
+            return false;
+        } else{
+          return true;
+        }
+
+        if (email == ''){
+            $('.error').html('**The email should not be empty');
+            $('.error').css('color','yellow');
+            return false;
+        } else{
+          return true;
+        }
+
+        if ((user.length < 3) || (user.length > 25)) {
+            $('#error .error').html('**Username must have more than 3 and less than 25 letters');
+            $('#error .error').css('color','red');
+            // $('#error').css('background','black');
+            return false;
+        }
+       
+        
+      });
+          
+           $("#cpwd").keyup(function(){
+            let pwd = $('#userpwd').val();
+            let cpwd = $('#cpwd').val();
+
+         if (cpwd!== pwd) {
+            $('#show-error').html('**password are not maching');
+            $('#show-error').css('color','red');
+            return false;
+          }
+          else{
+            $('#show-error').html('password matched');
+            $('#show-error').css('color','green');
+              return true;
+         }
+
+           });
+
+
+  });
+
+  </script>
+</body>
+
+</html>
